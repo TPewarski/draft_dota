@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 //TODO NOM INSTALL mongooSE
 
-mongoose.connect('mongodb://localhost/draft_dota2')
+mongoose.connect('mongodb://localhost/draft_dota')
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'mongodb connection error:'))
 

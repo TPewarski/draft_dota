@@ -49,6 +49,7 @@ var scrapeHeroData = function(name, team, callBack){
 
 			})
 			// console.log(scoresArray)
+			console.log("finished parsing html for this req")
 			callBack(null, scoresObj)
 
 		}else{

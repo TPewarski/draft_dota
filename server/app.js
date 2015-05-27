@@ -9,10 +9,15 @@ var prompt = require('prompt')
 var mongoose = require('mongoose')
 var Hero = require('./models')
 var app = express()
-
+var path = require('path')
 //use prompt to get a hero
 
 //scrape data for that hero
+
+app.use(function (req, res, next) {
+	console.log('ping')
+	next();
+});
 var heroScore = {}
 
 var avg = function(arr){
@@ -49,9 +54,13 @@ var getTotalScore = function(heroName, weightFactor){
 		}
 }
 
+var indexHtmlPath = path.join(__dirname, '../index.html')
 
-// {name: {allyScore: [num], oppsScore: [num], avail: true/false}}
+// {name: {allyScore: [num], oppsScore: [num], avail: true/false
 
+app.get('/', function(req, res, next){
+	res.sendFile(indexHtmlPath)
+})
 app.get('/:hero/team/:team', function(req, res){
 	console.log("hit the route")
 	//acceptable answers for team will be opps/allies
@@ -98,7 +107,7 @@ app.get('/:hero/team/:team', function(req, res){
 				//console.log(score)
 				heroScore[heroName] ? heroScore[heroName]["allyScore"].push(score) : heroScore[heroName] = {oppsScore: [], allyScore: [score], avail: true}
 				if(heroScore[heroName]["avail"]){
-						var oppWeightFactor = .7
+						var oppWeightFactor = .65
 						var totalScore = getTotalScore(heroName, oppWeightFactor)
 						//console.log(totalScore)
 						var heroJsonObj = {name: heroName, score: totalScore.toFixed(2)}

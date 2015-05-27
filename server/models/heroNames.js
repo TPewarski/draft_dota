@@ -106,8 +106,18 @@ var heroNames = module.exports = [
     {name: "ember_spirit", roles: [1, 2]},
     {name: "earth_spirit", roles: [2, 3, 4, 5]},
     {name: "winter_wyvern", roles: [5]},
-    {name: "oracle", roles: [5]]},
+    {name: "oracle", roles: [5]},
     {name: "techies", roles: [3, 4]},
     {name: "terrorblade", roles: [1]},
     {name: "phoenix", roles: [3, 4]}
     ] 
+
+    //attempts: 1
+    //successes: 
+    //207
+    //various errors i have gotten
+    //{ [Error: connect ETIMEDOUT] code: 'ETIMEDOUT', errno: 'ETIMEDOUT', syscall: 'connect' }
+    //{ [Error: read ECONNRESET] code: 'ECONNRESET', errno: 'ECONNRESET', syscall: 'read' }
+    //{ [Error: socket hang up] code: 'ECONNRESET' }
+
+
