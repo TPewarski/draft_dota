@@ -14,10 +14,23 @@ var path = require('path')
 
 //scrape data for that hero
 
+//middleware
 app.use(function (req, res, next) {
 	console.log('ping')
 	next();
 });
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+var publicPath = path.join(__dirname, '../public')
+var indexHtmlPath = path.join(__dirname, '../index.html')
+app.use(express.static(publicPath))
+
+app.get('/', function (req, res) {
+    res.sendFile(indexHtmlPath);
+});
+
+
 var heroScore = {}
 
 var avg = function(arr){
