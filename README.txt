@@ -13,4 +13,7 @@
 Dev/Bugs
 - available property is not working properly as a picked hero will show up
 - set up npm start to nodemon start my server
+- make the scraper more stable
+	-make the scraper grab either img files or image urls
+	- to make scraper more stable i want to have a boolean for each request and a timeout that will resend any requests who still have a false boolean.
 

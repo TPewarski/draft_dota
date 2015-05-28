@@ -10,6 +10,7 @@ var mongoose = require('mongoose')
 var Hero = require('./models')
 var app = express()
 var path = require('path')
+var bodyParser = require('body-parser')
 //use prompt to get a hero
 
 //scrape data for that hero
