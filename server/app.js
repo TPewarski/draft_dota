@@ -11,13 +11,14 @@ var Hero = require('./models')
 var app = express()
 var path = require('path')
 var bodyParser = require('body-parser')
+var heroNames = require('./models/heroNames')
 //use prompt to get a hero
 
 //scrape data for that hero
 
 //middleware
 app.use(function (req, res, next) {
-	console.log('ping')
+	console.log('ping: request made')
 	next();
 });
 app.use(bodyParser.json())
@@ -30,6 +31,10 @@ app.use(express.static(publicPath))
 app.get('/', function (req, res) {
     res.sendFile(indexHtmlPath);
 });
+
+app.get('/heroObjs', function(req, res){
+	res.send(heroNames)
+})
 
 
 var heroScore = {}
@@ -75,6 +80,17 @@ var indexHtmlPath = path.join(__dirname, '../index.html')
 app.get('/', function(req, res, next){
 	res.sendFile(indexHtmlPath)
 })
+
+app.get('/heroes', function(req, res){
+	Hero.find({}, function(err, heroes){
+		res.send(heroes)
+	})
+})
+
+
+
+
+
 app.get('/:hero/team/:team', function(req, res){
 	console.log("hit the route")
 	//acceptable answers for team will be opps/allies
