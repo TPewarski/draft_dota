@@ -1,5 +1,5 @@
-//1 = safelane farm 2= can you mid 3 can you offlane 4 = jungle or farming supp 5 = supp
-var heroNames = module.exports = [
+app.factory("HeroesObj", function(){
+	return [
             {name: "queenofpain", matchUpCoop: [/* {heroNAme: score, weightFactor: num}*/],  matchUpAnti: [/* {heroNAme: score, weightFactor: num}*/], roles: [2, 3]},
             {name: "antimage", matchUpCoop: [], matchUpAnti: [], roles: [1]},
             {name: "kunkka", matchUpCoop: [], matchUpAnti: [], roles: [2, 3, 4]},
@@ -111,13 +111,4 @@ var heroNames = module.exports = [
             {name: "terrorblade", matchUpCoop: [], matchUpAnti: [], roles: [1]},
             {name: "phoenix", matchUpCoop: [], matchUpAnti: [], roles: [3, 4]}
         ] 
-
-    //attempts: 1
-    //successes: 
-    //207
-    //various errors i have gotten
-    //{ [Error: connect ETIMEDOUT] code: 'ETIMEDOUT', errno: 'ETIMEDOUT', syscall: 'connect' }
-    //{ [Error: read ECONNRESET] code: 'ECONNRESET', errno: 'ECONNRESET', syscall: 'read' }
-    //{ [Error: socket hang up] code: 'ECONNRESET' }
-
-
+})

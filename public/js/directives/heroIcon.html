@@ -1,4 +1,4 @@
-<div class="hero-icon">
-	<img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{ hero.name }}_sb.png' alt='error'>
+<div class="hero-icon" ng-click='setCurrentHero(hero.name)'>
+	<img ng-src='http://cdn.dota2.com/apps/dota2/images/heroes/{{ hero.name }}_sb.png' alt='error'>
 	<!-- {{ hero | json }} -->
 </div>

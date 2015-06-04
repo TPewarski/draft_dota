@@ -32,11 +32,7 @@ app.get('/', function (req, res) {
     res.sendFile(indexHtmlPath);
 });
 
-app.get('/heroObjs', function(req, res){
-	res.send(heroNames)
-})
-
-
+/*
 var heroScore = {}
 
 var avg = function(arr){
@@ -76,20 +72,22 @@ var getTotalScore = function(heroName, weightFactor){
 var indexHtmlPath = path.join(__dirname, '../index.html')
 
 // {name: {allyScore: [num], oppsScore: [num], avail: true/false
+*/
 
 app.get('/', function(req, res, next){
 	res.sendFile(indexHtmlPath)
 })
 
-app.get('/heroes', function(req, res){
-	Hero.find({}, function(err, heroes){
+app.get('/hero', function(req, res){
+	// console.log("req.query", req.query)
+	Hero.findOne(req.query, function(err, heroes){
 		res.send(heroes)
 	})
 })
 
 
 
-
+/*
 
 app.get('/:hero/team/:team', function(req, res){
 	console.log("hit the route")
@@ -99,7 +97,7 @@ app.get('/:hero/team/:team', function(req, res){
 	var team = req.params.team
 	var name = hero.name
 
-	Hero.findOne({name: hero}, function(err, heroObj){
+	Hero.find({name: hero}, function(err, heroObj){
 		//console.log(heroObj)
 		heroScore[name] = {oppsScore: [], allyScore: [], avail: false}
 		//console.log(heroScore[name])
@@ -158,9 +156,10 @@ app.get('/:hero/team/:team', function(req, res){
 
 
 })
+*/
 
-app.listen('8080')
+app.listen('65534')
 
-console.log('Magic happens on port 8080')
+console.log('Hello from port 65534!')
 
 exports = module.exports = app;
