@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="suggested-heroes">
+            <!-- <div class="suggested-heroes">
                 <div  class='col-sm-2 col-md-2 col-lg-2 clearfix '>
                     <hero-icon hero='hero' ng-repeat='hero in heroes | farmPriority: 1'></hero-icon>
                 </div>
@@ -38,10 +38,11 @@
                     <hero-icon hero='hero' ng-repeat='hero in heroes | farmPriority: 5'></hero-icon>
                 </div>
 
-            </div>
+            </div> -->
 
             <div class='total-pool col-sm-12 col-md-12 col-lg-12'>
-                <hero-icon hero='hero' ng-repeat='hero in heroes'></hero-icon>
+                <!-- in case i decide to refactor I could iterate over Object.keys(heroes) -->
+                <hero-icon hero='key' ng-repeat='(key, value) in heroes'></hero-icon>
             </div>
 
 

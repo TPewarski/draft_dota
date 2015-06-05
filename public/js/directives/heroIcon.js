@@ -7,7 +7,7 @@ app.directive('heroIcon', function(HeroesFactory){
 		templateUrl: 'js/directives/heroIcon.html',
 		link: function(scope, el, attr){
 			scope.setCurrentHero = function(name){
-				HeroesFactory.currentHero = {name: name}
+				HeroesFactory.currentHero = name
 				//console.log(HeroesFactory.currentHero)
 				// console.log("HeroObj!!!!!", HeroesFactory.heroObjs)
 			}

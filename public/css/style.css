@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box; 
 }
-
+body {
+	background-color: rgba(55, 18, 25, .83);
+}
 .clearfix:after {
      visibility: hidden;
      display: block;

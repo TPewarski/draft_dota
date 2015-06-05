@@ -12,6 +12,8 @@ Higher level features
 
 
 Dev/Bugs
+*- filter based on roles is currently broken as i restructured heroesObj to no longer be an array of obj but just key/value pairs.
+so .filter no longer works.
 - available property is not working properly as a picked hero will show up
 - set up npm start to nodemon start my server
 - make the scraper more stable
