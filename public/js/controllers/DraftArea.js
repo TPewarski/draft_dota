@@ -3,21 +3,24 @@ app.controller('DraftArea', function($scope, HeroesFactory, HeroesObj){
 	$scope.opps = [null, null, null, null, null]
 
 	$scope.updateScores = function(hero, team){
+		var teamName;
 		if(team == $scope.allies){
-			console.log("hero.matchUpCoop", hero.matchUpCoop)
+			teamName = "allies"
+		}else{
+			teamName = 'opps'
+		}
+			// console.log("hero.matchUpCoop", hero.matchUpCoop)
 			for( var key in hero.matchUpCoop){
 				var safeName = HeroesFactory.getSafeName(key)
-
-				// console.log("safeNAme", safeName)
-				// console.log("heroesObj of safename", HeroesObj[safeName])
-				// console.log("heroesObj of safename . scores", HeroesObj[safeName].scores)
-				HeroesObj[safeName].scores.push(hero.matchUpCoop[key])
-				console.log("hero obj.name.socres array", HeroesObj[safeName].scores)
-				// console.log("key", key)
-				// console.log("heroesOb", HeroesObj)
-				// console.log(HeroesObj[key])
-			}
+				var scoreObj = {}
+				scoreObj[hero.name] = hero.matchUpCoop[key]
+				scoreObj.team = teamName
+				HeroesObj[safeName].scores.push(scoreObj)
+				// console.log("scoreObj", scoreObj)
+				// console.log("safeName", safeName)
+				// console.log("scores Array", HeroesObj[safeName].scores)
 		}
+
 	}
 
 	$scope.setHero = function(idx, team){
