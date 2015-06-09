@@ -1,9 +1,10 @@
-app.directive('heroIcon', function(HeroesFactory){
+app.directive('heroIcon', function(HeroesFactory, HeroesObj){
 	return {
 		restrict: 'E',
 		scope: { 
 			hero: '='
 		},
+		transclude: true,
 		templateUrl: 'js/directives/heroIcon.html',
 		link: function(scope, el, attr){
 			scope.setCurrentHero = function(name){

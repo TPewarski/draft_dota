@@ -79,7 +79,8 @@ app.get('/', function(req, res, next){
 })
 
 app.get('/hero', function(req, res){
-	// console.log("req.query", req.query)
+	console.log("req.query", req.query)
+	if(req.query)
 	Hero.findOne(req.query, function(err, heroes){
 		res.send(heroes)
 	})

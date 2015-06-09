@@ -1,7 +1,8 @@
 app.factory("HeroesObj", function(){
 	return {
-		
-	 	"queenofpain": {scores: [ /* heroName: {score: score, weightFactor: num, team: team} */], roles: [2, 3]},
+		// maybe format the scoreObj { heroName: {score: score, weightFactor: num, team: teamName } nvm dont think that would work not sure
+		// if you how easy it is to add keys from my draft controller idk going tot make it work other way first and see how it goes.
+	 	"queenofpain": {scores: [ /* {name: heroName, score: score, weightFactor: num, team: team} */], roles: [2, 3]},
         "antimage": {scores: [], roles: [1]},
         "kunkka": {scores: [], roles: [2, 3, 4]},
         "lina": {scores: [], roles: [2, 3, 4, 5]},

@@ -1,4 +1,10 @@
-<div class="hero-icon" ng-click='setCurrentHero(hero)'>
-	<img ng-src='http://cdn.dota2.com/apps/dota2/images/heroes/{{ hero }}_sb.png' alt='error'>
-	<!-- {{ hero | json }} -->
+<div class="hero-icon">
+	<div class="hero-icon" ng-click='setCurrentHero(hero)'>
+		<img ng-src='http://cdn.dota2.com/apps/dota2/images/heroes/{{ hero }}_sb.png' alt='error'>
+		<!-- {{ heroesObj[hero] | json }} -->
+		<!-- {{ hero | json }} -->
+	</div>
+
+	<ng-transclude class="hero-icon"></ng-transclude>
 </div>
+
