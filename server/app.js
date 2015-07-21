@@ -1,6 +1,5 @@
 //need to fix either my data harvesting or my schema. data is
 //getting put in an array
-var lsRoutes = require('express-ls-routes')
 var express = require('express')
 var fs = require('fs')
 var request = require('request')
@@ -12,8 +11,6 @@ var app = express()
 var path = require('path')
 var bodyParser = require('body-parser')
 var heroNames = require('./models/heroNames')
-var _ = require('lodash')
-var pf = require("pathfinder-ui")
 //use prompt to get a hero
 
 //scrape data for that hero
@@ -24,12 +21,6 @@ var pf = require("pathfinder-ui")
 // 	next();
 // });
 
-
-app.use('/pathfinder', function(req, res, next){
-	pf(app)
-	next()
-}, pf.router)
-// app.use('/pathfinder', pf.router)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -43,13 +34,8 @@ inside = [1,2,3];
 
 
 app.get('/', function (req, res) {
-	// console.log("inner app route stack:", _.flatten(app._router.stack))
-	inside = _.flatten(app._router.stack);
     res.sendFile(indexHtmlPath);
-	// console.log("YOOsadasdasdklnasjfnodsnfojdsnfojdnsjdinfijdsOOOOO", inside === outside)
 });
-
-// console.log("Outside of routes stack:", app._router.stack)
 
 app.get('/hero', function(req, res){
 	console.log("req.query", req.query)
@@ -59,7 +45,6 @@ app.get('/hero', function(req, res){
 	})
 })
 
-app.post
 /*
 var heroScore = {}
 
@@ -181,30 +166,6 @@ app.get('/:hero/team/:team', function(req, res){
 */
 
 
-var testRouter = require('express').Router();
-//app.use('/', testRouter)//i dont think we'll catch this
-
-testRouter.get('/ZZZZ/:Zid', function(req, res, next){
-
-	res.send(testRouter.stack);
-})
-app.use("/test", testRouter);
-
-testRouter.get('/', function(req, res, next){
-
-	res.json(testRouter.stack);
-})
-testRouter.post('/postRoute/:id', function(req, res){
-	res.send("posted")
-})
-
-
-
-
-app.get("/supertestadvil", function(req, res){
-	res.send(app._router.stack);
-})
-
 
 app.listen('65534', function(){
 	// console.log("in listen: routes stack:", app._router.stack)
@@ -213,10 +174,6 @@ app.listen('65534', function(){
 	 //pf(app)
 	// console.log("PRE FILTER ROUTES", routes)
 	// console.log("routes!!!!!", retrieveRoutes(routes))
-})
-
-app.get('/hero/:id', lsRoutes(app), function(req, res){
-	res.json(200, req.routes)
 })
 
 console.log('Hello from port 65534!')
