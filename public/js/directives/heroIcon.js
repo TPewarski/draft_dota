@@ -7,6 +7,7 @@ app.directive('heroIcon', function(HeroesFactory, HeroesObj){
 		transclude: true,
 		templateUrl: 'js/directives/heroIcon.html',
 		link: function(scope, el, attr){
+			// console.log(scope)
 			scope.setCurrentHero = function(name){
 				HeroesFactory.currentHero = name
 				//console.log(HeroesFactory.currentHero)

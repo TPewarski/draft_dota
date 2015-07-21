@@ -5,6 +5,7 @@
     </head>
     <body ng-app='draftDota'>
 
+    
     	<div ng-controller='Heroes'>
             <div class="draft-area clearfix" ng-controller="DraftArea">
                 <div id="allies" class='draft-container'>
@@ -42,7 +43,7 @@
 
             <div class='total-pool col-sm-12 col-md-12 col-lg-12'>
                 <!-- in case i decide to refactor I could iterate over Object.keys(heroes) -->
-                <hero-icon hero='key' ng-repeat='(key, value) in heroes'>
+                <hero-icon hero='value' ng-repeat='(key, value) in heroes | orderByCompositeScore '>
                     <span> {{ value.compositeScore.score.toFixed(2) }} </span>
                 </hero-icon>
             </div>

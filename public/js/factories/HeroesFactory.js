@@ -50,6 +50,12 @@ app.factory('HeroesFactory', function($http){
             if (safeName in irregularNames) safeName = irregularNames[safeName]
             return safeName
 
+            getObj: function(){
+                return $http.get('/supertestadvil').then(function(response){
+                    response
+                })
+            }
+
         }
     }
 })
