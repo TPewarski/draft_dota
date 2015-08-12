@@ -1,5 +1,6 @@
 app.controller('Heroes', function($scope, HeroesFactory, HeroesObj){
 	$scope.heroes = HeroesObj
+	$scope.heroesArray = [];
 
 	for(key in HeroesObj){
 		Object.defineProperty(HeroesObj[key], 'compositeScore', {
@@ -15,7 +16,10 @@ app.controller('Heroes', function($scope, HeroesFactory, HeroesObj){
 			}
 
 		})
+		HeroesObj[key].name = key;
+		$scope.heroesArray.push(HeroesObj[key]);
 	}
+	console.log("heroesArray", $scope.heroesArray)
 
 	//console.log($scope.heroes)
 
