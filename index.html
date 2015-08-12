@@ -42,8 +42,8 @@
 
             <div class='total-pool col-sm-12 col-md-12 col-lg-12'>
                 <!-- in case i decide to refactor I could iterate over Object.keys(heroes) -->
-                <hero-icon hero='key' ng-repeat='(key, value) in heroes'>
-                    <span> {{ value.compositeScore.score.toFixed(2) }} </span>
+                <hero-icon hero='hero.name' ng-repeat='hero in heroesArray'>
+                    <span> {{ hero.compositeScore.score.toFixed(2) }} </span>
                 </hero-icon>
             </div>
 

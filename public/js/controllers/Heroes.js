@@ -19,6 +19,18 @@ app.controller('Heroes', function($scope, HeroesFactory, HeroesObj){
 		HeroesObj[key].name = key;
 		$scope.heroesArray.push(HeroesObj[key]);
 	}
+	//sorts the array alphabetically when first loaded
+	//everytime the draft is updated it orders by composite score.
+	$scope.heroesArray.sort(function(a, b){
+		if (a.name > b.name) {
+		    return 1;
+		  }
+		  if (a.name < b.name) {
+		    return -1;
+		  }
+		  // a must be equal to b
+		  return 0;
+			})
 	console.log("heroesArray", $scope.heroesArray)
 
 	//console.log($scope.heroes)
