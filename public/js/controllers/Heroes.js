@@ -21,16 +21,31 @@ app.controller('Heroes', function($scope, HeroesFactory, HeroesObj){
 	}
 	//sorts the array alphabetically when first loaded
 	//everytime the draft is updated it orders by composite score.
-	$scope.heroesArray.sort(function(a, b){
-		if (a.name > b.name) {
-		    return 1;
-		  }
-		  if (a.name < b.name) {
-		    return -1;
-		  }
-		  // a must be equal to b
-		  return 0;
-			})
+	$scope.compSortFunc = function(a, b){
+		// console.log("a, b", a, b)
+		if(a.compositeScore.score > b.compositeScore.score){
+			return -1
+		}
+		if(a.compositeScore.score < b.compositeScore.score){
+			return 1
+		}
+		if(a.compositeScore.score == b.compositeScore.score){
+			if (a.name > b.name) {
+			    return 1;
+			  }
+			if (a.name < b.name) {
+			    return -1;
+			}
+			  // a must be equal to b
+			  return 0;
+		}
+		return 0;
+	}
+	$scope.compositeSort = function(){
+		console.log("composite sorting")
+		$scope.heroesArray.sort($scope.compSortFunc);
+	}
+	$scope.heroesArray.sort($scope.compSortFunc)
 	console.log("heroesArray", $scope.heroesArray)
 
 	//console.log($scope.heroes)
