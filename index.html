@@ -9,13 +9,13 @@
             <div class="draft-area clearfix" ng-controller="DraftArea">
                 <div id="allies" class='draft-container'>
                     <div ng-repeat='ally in allies track by $index'>
-                        <div class="placeholder-box" ng-if='!ally' ng-click='setHero($index, allies); compositeSort()'></div>
+                        <div class="placeholder-box" ng-if='!ally' ng-click='setHero($index, allies)'></div>
                         <hero-icon hero='ally' ng-if='ally' ></hero-icon>
                     </div>
                 </div>
                 <div id="opps" class='draft-container'>
                     <div ng-repeat='opp in opps track by $index'>
-                        <div class="placeholder-box" ng-if='!opp' ng-click='setHero($index, opps); compositeSort()' ></div>
+                        <div class="placeholder-box" ng-if='!opp' ng-click='setHero($index, opps)' ></div>
                         <hero-icon hero='opp' ng-if='opp'></hero-icon>
                     </div>
                 </div>
